@@ -1,0 +1,9 @@
+<app-add-training></app-add-training>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+   <app-training-list-item
+     *ngFor="let trainingEl of trainings"
+    [training]="trainingEl"></app-training-list-item>
+  </div>
+</div>
