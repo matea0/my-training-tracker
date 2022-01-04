@@ -1,20 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Training } from "./training.model";
+import {TrainingsService} from "./trainings.service";
 
 @Component({
   selector: 'app-trainings-list',
   templateUrl: './trainings-list.component.html',
-  styleUrls: ['./trainings-list.component.css']
+  styleUrls: ['./trainings-list.component.css'],
+  providers: [TrainingsService]
 })
 export class TrainingsListComponent implements OnInit {
-  trainings: Training[] = [
-    new Training('16.11.2021', 60, 'Walking'),
-    new Training('16.11.2021', 60, 'Running')
-  ];
+  trainings: Training[];
 
-  constructor() { }
+  constructor(private trainingService: TrainingsService) {
+    this.trainings = [];
+  }
 
   ngOnInit(): void {
+    this.trainings = this.trainingService.getTrainigs();
   }
 
 }
