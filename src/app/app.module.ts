@@ -8,6 +8,7 @@ import { TrainingListItemComponent } from './trainings-list/training-list-item/t
 import { TrainingsListComponent } from './trainings-list/trainings-list.component';
 import { CommonModule } from "@angular/common";
 import {FormsModule} from "@angular/forms";
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {FormsModule} from "@angular/forms";
   imports: [
     BrowserModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
