@@ -8,5 +8,5 @@
 }
 
 .my_active {
-  border: rgba(255, 255, 255, 0.5) 1px solid;
+  outline: rgba(255, 255, 255, 0.5) 1px solid;
 }
