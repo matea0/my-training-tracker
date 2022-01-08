@@ -8,6 +8,7 @@
 }
 
 .my_active {
-  outline: rgba(255, 255, 255, 0.2) 1px solid;
+
   background: rgba(255, 255, 255, 0.2);
+  transition: background-color  1s;
 }

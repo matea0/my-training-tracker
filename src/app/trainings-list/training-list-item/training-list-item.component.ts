@@ -11,9 +11,9 @@ export class TrainingListItemComponent implements OnInit {
 
   constructor() {
     this.training = {
-      type: "Papanje",
-      duration: 100,
-      date: "22.11.2021."
+      date: "",
+      duration: 0,
+      type: ""
     }
   }
 
