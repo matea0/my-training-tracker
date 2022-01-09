@@ -17,6 +17,12 @@ export class TrainingsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.trainings = this.trainingService.getTrainigs();
+    this.trainingService.trainingsChanged
+      .subscribe(
+        (trainings: Training[]) => {
+        this.trainings = trainings;
+    }
+    );
   }
 
 }
