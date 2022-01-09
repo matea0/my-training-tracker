@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Training } from "./training.model";
 import {TrainingsService} from "./trainings.service";
 
 @Component({
   selector: 'app-trainings-list',
   templateUrl: './trainings-list.component.html',
-  styleUrls: ['./trainings-list.component.css'],
-  providers: [TrainingsService]
+  styleUrls: ['./trainings-list.component.css']
 })
-export class TrainingsListComponent implements OnInit {
+export class TrainingsListComponent implements OnInit{
   trainings: Training[];
 
   constructor(private trainingService: TrainingsService) {
@@ -21,8 +20,7 @@ export class TrainingsListComponent implements OnInit {
       .subscribe(
         (trainings: Training[]) => {
         this.trainings = trainings;
-    }
+      }
     );
   }
-
 }

@@ -9,6 +9,7 @@ import { TrainingsListComponent } from './trainings-list/trainings-list.componen
 import { CommonModule } from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {AppRoutingModule} from "./app-routing.module";
+import {TrainingsService} from "./trainings-list/trainings.service";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import {AppRoutingModule} from "./app-routing.module";
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [TrainingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

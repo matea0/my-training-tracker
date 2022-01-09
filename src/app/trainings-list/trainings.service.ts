@@ -8,6 +8,7 @@ import {EventEmitter, Injectable} from "@angular/core";
 )
 export class TrainingsService {
   trainingsChanged = new EventEmitter<Training[]>();
+
   private trainings: Training[] = [
     new Training('2021-11-16', 60, 'Walking'),
     new Training('2021-12-23', 60, 'Running')
@@ -19,6 +20,7 @@ export class TrainingsService {
 
   addTraining(training: Training) {
     this.trainings.push(training);
+    console.log(this.trainings);
     this.trainingsChanged.emit(this.trainings.slice());
   }
 }
