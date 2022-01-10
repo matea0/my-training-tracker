@@ -21,5 +21,6 @@ export class AddTrainingComponent implements OnInit {
     const value = form.value;
     const newTraining = new Training(value.date, value.duration, value.type);
     this.trainingService.addTraining(newTraining);
+    form.reset();
   }
 }

@@ -3,7 +3,7 @@
     <form (ngSubmit)="onAddTraining(f)" #f="ngForm">
       <div class="row">
         <div class="col-sm-5 form-group">
-          <label for="type">Type of exercise: </label>
+          <label for="type">*Type of exercise: </label>
           <input type="text"
                  id="type"
                  class="form-control"
@@ -13,13 +13,14 @@
           >
         </div>
         <div class="col-sm-5 form-group">
-          <label for="duration">Duration (minutes): </label>
+          <label for="duration">*Duration (minutes): </label>
           <input type="number"
                  id="duration"
                  class="form-control"
                  name="duration"
                  ngModel
                  required
+                 pattern="^[1-9]+[0-9]*$"
           >
         </div>
         <div class="col-sm-5 form-group">
@@ -31,7 +32,14 @@
                  ngModel>
         </div>
         <div class="col-sm-5 form-group">
-          <button class="btn add-btn" type="submit" [disabled]="!f.valid">Add Training</button>
+          <button
+            class="btn add-btn"
+            type="submit"
+            [disabled]="!f.valid">Add Training</button>
+          <div
+            class="alert"
+            *ngIf="!f.valid && f.dirty"
+          >Enter valid type and duration!</div>
         </div>
       </div>
     </form>
