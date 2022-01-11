@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Training } from "../training.model";
+import {TrainingsService} from "../trainings.service";
 
 @Component({
   selector: 'app-training-list-item',
@@ -9,7 +10,7 @@ import { Training } from "../training.model";
 export class TrainingListItemComponent implements OnInit {
   @Input() training: Training;
 
-  constructor() {
+  constructor(private trainingService: TrainingsService) {
     this.training = {
       date: "",
       duration: 0,
@@ -20,4 +21,7 @@ export class TrainingListItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onDelete() {
+    this.trainingService.deleteTraining(this.training);
+  }
 }
