@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Training } from "../training.model";
 import {TrainingsService} from "../trainings.service";
+import {DataStorageService} from "../../shared/data-storage.service";
+import {Data} from "@angular/router";
 
 @Component({
   selector: 'app-training-list-item',
@@ -10,7 +12,7 @@ import {TrainingsService} from "../trainings.service";
 export class TrainingListItemComponent implements OnInit {
   @Input() training: Training;
 
-  constructor(private trainingService: TrainingsService) {
+  constructor(private trainingService: TrainingsService, private dsService: DataStorageService) {
     this.training = {
       date: "",
       duration: 0,
@@ -23,5 +25,6 @@ export class TrainingListItemComponent implements OnInit {
 
   onDelete() {
     this.trainingService.deleteTraining(this.training);
+    this.dsService.storeTrainings();
   }
 }

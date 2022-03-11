@@ -1,5 +1,6 @@
-import {Training} from "./training.model";
 import {EventEmitter, Injectable} from "@angular/core";
+
+import {Training} from "./training.model";
 
 @Injectable(
   {
@@ -10,10 +11,17 @@ export class TrainingsService {
   trainingsChanged = new EventEmitter<Training[]>();
   index: number = 0;
 
-  private trainings: Training[] = [
-    new Training('2021-11-16', 60, 'Walking'),
-    new Training('2021-12-23', 60, 'Running')
-  ];
+//  private trainings: Training[] = [
+//    new Training('2021-11-16', 60, 'Walking'),
+//    new Training('2021-12-23', 60, 'Running')
+//  ];
+
+  private trainings: Training[] = [];
+
+  setTrainings(trainings: Training[]) {
+    this.trainings = trainings;
+    this.trainingsChanged.next(this.trainings.slice());
+  }
 
   getTrainigs() {
     return this.trainings.slice();

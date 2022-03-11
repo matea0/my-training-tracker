@@ -3,6 +3,7 @@ import {NgForm} from '@angular/forms';
 
 import {Training} from "../trainings-list/training.model";
 import {TrainingsService} from "../trainings-list/trainings.service";
+import {DataStorageService} from "../shared/data-storage.service";
 
 
 @Component({
@@ -11,8 +12,8 @@ import {TrainingsService} from "../trainings-list/trainings.service";
   styleUrls: ['./add-training.component.css']
 })
 export class AddTrainingComponent implements OnInit {
-
-  constructor(private trainingService: TrainingsService) { }
+  alert: boolean = false;
+  constructor(private trainingService: TrainingsService, private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
   }
@@ -22,5 +23,7 @@ export class AddTrainingComponent implements OnInit {
     const newTraining = new Training(value.date, value.duration, value.type);
     this.trainingService.addTraining(newTraining);
     form.reset();
+    this.dataStorageService.storeTrainings();
+    this.alert = true;
   }
 }

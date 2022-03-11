@@ -35,11 +35,16 @@
           <button
             class="btn add-btn"
             type="submit"
-            [disabled]="!f.valid">Add Training</button>
+            [disabled]="!f.valid"
+          >Add Training</button>
           <div
             class="alert"
             *ngIf="!f.valid && f.dirty"
           >Enter valid type and duration!</div>
+          <div
+            class="alert"
+            *ngIf="alert"
+            >Training added successfully!</div>
         </div>
       </div>
     </form>
