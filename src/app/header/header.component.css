@@ -8,7 +8,15 @@
 }
 
 .my_active {
-
   background: rgba(255, 255, 255, 0.2);
   transition: background-color  1s;
+}
+
+.navbar-brand
+{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  margin:0 auto;
 }

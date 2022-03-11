@@ -12,6 +12,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {AppRoutingModule} from "./app-routing.module";
 import {TrainingsService} from "./trainings-list/trainings.service";
 import {AuthComponent} from "./auth/auth.component";
+import {LoadingSpinnerComponent} from "./shared/loading-spinner/loading-spinner.component";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {AuthComponent} from "./auth/auth.component";
     HeaderComponent,
     TrainingListItemComponent,
     TrainingsListComponent,
-    AuthComponent
+    AuthComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
