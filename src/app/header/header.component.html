@@ -4,10 +4,11 @@
       <a href="#" class="navbar-brand">My Training Tracker</a>
     </div>
     <ul class="nav navbar-nav navbar-left">
-      <li routerLinkActive="my_active"><a routerLink="/trainings">Trainings</a></li>
-      <li routerLinkActive="my_active"><a routerLink="/add-training">Add Training</a></li></ul>
+      <li routerLinkActive="my_active"  *ngIf="isAuthenticated"><a routerLink="/trainings">Trainings</a></li>
+      <li routerLinkActive="my_active"  *ngIf="isAuthenticated"><a routerLink="/add-training" >Add Training</a></li></ul>
     <ul class="nav navbar-nav navbar-right">
-      <li routerLinkActive="my_active"><a routerLink="/auth">Authenticate</a></li>
+      <li routerLinkActive="my_active"  *ngIf="!isAuthenticated"><a routerLink="/auth">Authenticate</a></li>
+      <li routerLinkActive="my_active" *ngIf="isAuthenticated" (click)="onLogout()"><a>Logout</a></li>
     </ul>
     </div>
 </nav>

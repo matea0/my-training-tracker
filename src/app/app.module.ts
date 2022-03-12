@@ -7,12 +7,13 @@ import { TrainingListItemComponent } from './trainings-list/training-list-item/t
 import { TrainingsListComponent } from './trainings-list/trainings-list.component';
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 
 import {AppRoutingModule} from "./app-routing.module";
 import {TrainingsService} from "./trainings-list/trainings.service";
 import {AuthComponent} from "./auth/auth.component";
 import {LoadingSpinnerComponent} from "./shared/loading-spinner/loading-spinner.component";
+import {AuthInterceptorService} from "./auth/auth-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,13 @@ import {LoadingSpinnerComponent} from "./shared/loading-spinner/loading-spinner.
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [TrainingsService],
+  providers: [
+    TrainingsService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
